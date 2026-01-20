@@ -21,7 +21,17 @@ function loadEmployees() {
 }
 
 function removeEmployee(id) {
-    deleteEmployee(id).then(loadEmployees);
+    if (confirm("Are you sure you want to delete?")) {
+        deleteEmployee(id)
+            .then(() => {
+                alert("Employee Deleted from Server");
+                loadEmployees();
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Delete Failed");
+            });
+    }
 }
 
 function editEmployee(id) {

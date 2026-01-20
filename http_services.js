@@ -25,5 +25,7 @@ function updateEmployee(id, emp) {
 }
 
 function deleteEmployee(id) {
-    return fetch(`${BASE_URL}/${id}`, { method: "DELETE" });
+    return fetch(`http://localhost:3000/employees/${id}`, {
+        method: "DELETE"
+    });
 }
