@@ -1,46 +1,22 @@
+let useServer = true;
+
 function saveEmployee(event) {
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const salary = document.getElementById("salary").value;
-    const startDate = document.getElementById("startDate").value;
-
-    if (!validateName(name) || !validateDate(startDate)) return;
-
     const emp = {
-        name,
-        salary,
-        startDate
+        name: name.value,
+        salary: salary.value,
+        startDate: startDate.value
     };
 
-    addEmployee(emp)
-        .then((data) => {
-            alert("Employee Saved to Server:\nID: " + data.id);
+    if (useServer) {
+        addEmployeeToServer(emp).then(() => {
+            alert("Employee Saved to Server");
             window.location.href = "home.html";
-        })
-        .catch(err => {
-            console.error(err);
-            alert("Error saving employee. Check console.");
         });
-}
-
-function validateName(name) {
-    const nameRegex = /^[A-Z][a-z]{2,}$/;
-    if (!nameRegex.test(name)) {
-        document.getElementById("error").innerText = 
-            "Name must start with capital and have min 3 chars";
-        return false;
+    } else {
+        addEmployeeToLocal(emp);
+        alert("Employee Saved to Local Storage");
+        window.location.href = "home.html";
     }
-    document.getElementById("error").innerText = "";
-    return true;
-}
-
-function validateDate(date) {
-    if (!date) {
-        document.getElementById("error").innerText = 
-            "Start Date is required";
-        return false;
-    }
-    document.getElementById("error").innerText = "";
-    return true;
 }
