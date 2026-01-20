@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+</head>
+<body>
+
+<h2>Add Employee Payroll</h2>
+
+<form onsubmit="saveEmployee(event)">
+    Name: <input id="name" required><br><br>
+    Salary: <input id="salary" type="number" ><br><br>
+    Start Date: <input id="startDate" type="date" ><br><br>
+
+    <button type="submit" onclick="saveEmployee(event)">Save</button>
+</form>
+
+<p id="error"></p>
+
+<script src="../http_services.js"></script>
+<script src="../js/payroll_form.js"></script>
+
+</body>
+</html>
