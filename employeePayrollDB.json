@@ -2,94 +2,28 @@
   "employees": [
     {
       "id": "1",
-      "name": "Hashirama Senju",
-      "gender": "Male",
-      "department": [
-        "HR"
-      ],
-      "salary": 40000
+      "name": "Server Employee",
+      "salary": 60000
     },
     {
-      "id": "2",
-      "name": "Tobirama Senju",
-      "gender": "Female",
-      "department": [
-        "Sales",
-        "Finance"
-      ],
-      "salary": 55000
+      "id": "a5b7",
+      "name": "Shared User",
+      "salary": 70000
     },
     {
-      "id": "02a1",
-      "name": "Hiruzen Sarutobi",
-      "gender": "Male",
-      "department": [
-        "Engineering"
-      ],
-      "salary": 65000
+      "id": "4a3a",
+      "name": "Shared User",
+      "salary": 70000
     },
     {
-      "id": "ebee",
-      "name": "Minato Namikaze",
-      "gender": "Male",
-      "department": [
-        "Engineering"
-      ],
-      "salary": 65000
+      "id": "49c4",
+      "name": "Shared User",
+      "salary": 70000
     },
     {
-      "id": "62cf",
-      "name": "Tsunade Senju",
-      "gender": "Male",
-      "department": [
-        "Engineering"
-      ],
-      "salary": 65000
-    },
-    {
-      "id": "db3f",
-      "name": "Kakashi Hatake",
-      "gender": "Male",
-      "department": [
-        "Engineering"
-      ],
-      "salary": 65000
-    },
-    {
-      "id": "e8fe",
-      "name": "Naruto Uzumaki",
-      "gender": "Male",
-      "department": [
-        "Engineering"
-      ],
-      "salary": 65000
-    },
-    {
-      "id": "9a8c",
-      "name": "Shikamaru Nara",
-      "gender": "Male",
-      "department": [
-        "Engineering"
-      ],
-      "salary": 65000
-    },
-    {
-      "id": "8b9d",
-      "name": "Amit Patil",
-      "gender": "Male",
-      "department": [
-        "Engineering"
-      ],
-      "salary": 65000
-    },
-    {
-      "id": "da27",
-      "name": "Amit Patil",
-      "gender": "Male",
-      "department": [
-        "Engineering"
-      ],
-      "salary": 65000
+      "id": "3b06",
+      "name": "Shared User",
+      "salary": 70000
     }
   ]
 }
