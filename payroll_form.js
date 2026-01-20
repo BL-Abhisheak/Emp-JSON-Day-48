@@ -1,3 +1,20 @@
+let empId = null;
+
+window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    empId = params.get("id");
+
+    if (empId) {
+        getEmployeeById(empId).then(fillForm);
+    }
+});
+
+function fillForm(emp) {
+    document.getElementById("name").value = emp.name;
+    document.getElementById("salary").value = emp.salary;
+    document.getElementById("startDate").value = emp.startDate;
+}
+
 function saveEmployee(event) {
     event.preventDefault();
 
@@ -7,21 +24,19 @@ function saveEmployee(event) {
 
     if (!validateName(name) || !validateDate(startDate)) return;
 
-    const emp = {
-        name,
-        salary,
-        startDate
-    };
+    const emp = { name, salary, startDate };
 
-    addEmployee(emp)
-        .then(data => {
-            alert("Employee Saved to Server with ID: " + data.id);
+    if (empId) {
+        updateEmployee(empId, emp).then(() => {
+            alert("Employee Updated Successfully");
             window.location.href = "home.html";
-        })
-        .catch(err => {
-            console.error(err);
-            alert("Error saving employee");
         });
+    } else {
+        addEmployee(emp).then(() => {
+            alert("Employee Added Successfully");
+            window.location.href = "home.html";
+        });
+    }
 }
 
 function validateName(name) {

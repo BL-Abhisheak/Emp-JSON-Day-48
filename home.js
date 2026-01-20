@@ -12,6 +12,7 @@ function loadEmployees() {
                     <td>${emp.name}</td>
                     <td>${emp.salary}</td>
                     <td>
+                        <button onclick="editEmployee(${emp.id})">Edit</button>
                         <button onclick="removeEmployee(${emp.id})">Delete</button>
                     </td>
                 </tr>`;
@@ -21,4 +22,8 @@ function loadEmployees() {
 
 function removeEmployee(id) {
     deleteEmployee(id).then(loadEmployees);
+}
+
+function editEmployee(id) {
+    window.location.href = `payroll_form.html?id=${id}`;
 }
