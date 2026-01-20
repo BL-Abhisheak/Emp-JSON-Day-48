@@ -1,10 +1,10 @@
 const BASE_URL = "http://localhost:3000/employees";
 
-function getEmployeesFromServer() {
+function getEmployees() {
     return fetch(BASE_URL).then(res => res.json());
 }
 
-function addEmployeeToServer(emp) {
+function addEmployee(emp) {
     return fetch(BASE_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -12,7 +12,7 @@ function addEmployeeToServer(emp) {
     }).then(res => res.json());
 }
 
-function deleteEmployeeFromServer(id) {
+function deleteEmployee(id) {
     return fetch(`${BASE_URL}/${id}`, {
         method: "DELETE"
     });

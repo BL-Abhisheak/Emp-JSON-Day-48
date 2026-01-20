@@ -1,22 +1,46 @@
-let useServer = true;
-
 function saveEmployee(event) {
     event.preventDefault();
 
+    const name = document.getElementById("name").value;
+    const salary = document.getElementById("salary").value;
+    const startDate = document.getElementById("startDate").value;
+
+    if (!validateName(name) || !validateDate(startDate)) return;
+
     const emp = {
-        name: name.value,
-        salary: salary.value,
-        startDate: startDate.value
+        name,
+        salary,
+        startDate
     };
 
-    if (useServer) {
-        addEmployeeToServer(emp).then(() => {
-            alert("Employee Saved to Server");
+    addEmployee(emp)
+        .then(data => {
+            alert("Employee Saved to Server with ID: " + data.id);
             window.location.href = "home.html";
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Error saving employee");
         });
-    } else {
-        addEmployeeToLocal(emp);
-        alert("Employee Saved to Local Storage");
-        window.location.href = "home.html";
+}
+
+function validateName(name) {
+    const regex = /^[A-Z][a-z]{2,}$/;
+    if (!regex.test(name)) {
+        document.getElementById("error").innerText =
+            "Name must start with capital and have minimum 3 letters";
+        return false;
     }
+    document.getElementById("error").innerText = "";
+    return true;
+}
+
+function validateDate(date) {
+    if (!date) {
+        document.getElementById("error").innerText =
+            "Start Date is required";
+        return false;
+    }
+    document.getElementById("error").innerText = "";
+    return true;
 }
